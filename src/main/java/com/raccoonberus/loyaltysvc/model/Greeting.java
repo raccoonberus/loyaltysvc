@@ -1,4 +1,4 @@
-package com.raccoonberus.loyaltysvc.domain;
+package com.raccoonberus.loyaltysvc.model;
 
 public class Greeting {
 

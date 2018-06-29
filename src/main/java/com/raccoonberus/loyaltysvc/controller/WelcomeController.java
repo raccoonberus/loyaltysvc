@@ -1,6 +1,6 @@
 package com.raccoonberus.loyaltysvc.controller;
 
-import com.raccoonberus.loyaltysvc.domain.Greeting;
+import com.raccoonberus.loyaltysvc.model.Greeting;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
