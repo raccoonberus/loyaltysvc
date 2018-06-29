@@ -11,10 +11,10 @@ Method: **POST**
 Body:
 
     {
-        "id": "",
-        "description": "",
-        "validFrom": "",
-        "validTill": "",
+        "name": "primary-client-code",
+        "description": "Code is given to the primary user",
+        "validFrom": null,
+        "validTill": null,
         "value": 2000
     }
 
@@ -22,7 +22,7 @@ Response:
 
     {
         "ok": true,
-        "result": 123
+        "result": []
     }
 
 #### Get codes types
@@ -34,25 +34,24 @@ Response:
     {
         "result": [
             {
-                "id": "",
-                "description": "",
-                "validFrom": "",
-                "validTill": "",
+                "name": "primary-client-code",
+                "description": "Code is given to the primary user",
+                "validFrom": null,
+                "validTill": null,
                 "value": 2000
             },
             {
-                "id": "",
-                "description": "",
-                "validFrom": "",
-                "validTill": "",
-                "value": 1000
+                "name": "new-year-2020-promo",
+                "description": "Discount codes for 2020 New Year",
+                "validFrom": "2019-12-22",
+                "validTill": "2020-01-14",
+                "value": 5000
             },
             {
-                "id": "",
-                "description": "",
-                "validFrom": "",
-                "validTill": "",
-                "value": 3000
+                "name": "lure-customers",
+                "description": "Send discount code after purchase",
+                "expiration": 2678400, // 60 * 60 * 24 * 31 = one month in seconds
+                "value": 1500
             }
         ]
     }
@@ -67,8 +66,9 @@ Method: POST
 Body:
 
     {
-        "strategy": "",
+        "strategy": "CustomerPersonalCode-4-letter-6-digits",
         "type": "30-days-discount",
+        "quantity": 10000
     }
 
 Response:
@@ -76,4 +76,13 @@ Response:
     {
         "ok": true,
         "result": 10000
+    }
+
+or
+
+    {
+        "ok": false,
+        "errors": [
+            { "message": "Strategy not found!" }
+        ]
     }
