@@ -1,4 +1,4 @@
-package com.raccoonberus.loyaltysvc.controller;
+package com.raccoonberus.loyaltysvc.web.controller;
 
 import com.raccoonberus.loyaltysvc.Application;
 import org.junit.After;

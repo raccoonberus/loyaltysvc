@@ -1,4 +1,4 @@
-package com.raccoonberus.loyaltysvc.controller;
+package com.raccoonberus.loyaltysvc.web.controller;
 
 import com.raccoonberus.loyaltysvc.model.Greeting;
 import org.springframework.web.bind.annotation.PathVariable;
