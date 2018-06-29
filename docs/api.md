@@ -56,10 +56,30 @@ Response:
         ]
     }
 
+#### Get code
 
-### Generate codes
+Path: /api/type/{id|name}
 
-Path: /api/generate/do
+Method: **GET**
+
+Response:
+
+    {
+        "ok": true,
+        "result": {
+            "name": "primary-client-code",
+            "description": "Code is given to the primary user",
+            "validFrom": null,
+            "validTill": null,
+            "value": 2000
+        }
+    }
+
+## Code resource
+
+#### Generate codes
+
+Path: /api/generate/run
 
 Method: POST
 
