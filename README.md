@@ -7,5 +7,5 @@
 
 ### General information
 
-* **GeneratorStrategy** - define rules for code identifier concatenation.
-* **CodeType** - determines the value and lifetime for codes.
+* **Generator strategy** - define rules for code identifier concatenation.
+* **Code type** - determines the value and lifetime for codes.
