@@ -8,4 +8,4 @@
 ### General information
 
 * **Generator strategy** - define rules for code identifier concatenation.
-* **Code type** - determines the value and lifetime for codes.
+* **Code type** - determines the name and lifetime for codes.

@@ -12,15 +12,16 @@ public class Code {
     private long id;
 
     @Column(unique = true)
-    private String value;
+    private String name;
 
     private Date createdAt;
 
     private Date updatedAt;
 
+    @ManyToOne(optional = false)
     private Type type;
 
-    @ManyToOne(optional = false)
+    @ManyToOne(optional = true)
     private Account activatedBy;
 
     public long getId() {
@@ -32,12 +33,12 @@ public class Code {
         return this;
     }
 
-    public String getValue() {
-        return value;
+    public String getName() {
+        return name;
     }
 
-    public Code setValue(String value) {
-        this.value = value;
+    public Code setName(String name) {
+        this.name = name;
         return this;
     }
 

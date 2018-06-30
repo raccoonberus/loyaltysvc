@@ -15,7 +15,7 @@ Body:
         "description": "Code is given to the primary user",
         "validFrom": null,
         "validTill": null,
-        "value": 2000
+        "name": 2000
     }
 
 Response:
@@ -38,25 +38,25 @@ Response:
                 "description": "Code is given to the primary user",
                 "validFrom": null,
                 "validTill": null,
-                "value": 2000
+                "name": 2000
             },
             {
                 "name": "new-year-2020-promo",
                 "description": "Discount codes for 2020 New Year",
                 "validFrom": "2019-12-22",
                 "validTill": "2020-01-14",
-                "value": 5000
+                "name": 5000
             },
             {
                 "name": "lure-customers",
                 "description": "Send discount code after purchase",
                 "expiration": 2678400, // 60 * 60 * 24 * 31 = one month in seconds
-                "value": 1500
+                "name": 1500
             }
         ]
     }
 
-#### Get code
+#### Get type
 
 Path: /api/type/{id|name}
 
@@ -71,7 +71,7 @@ Response:
             "description": "Code is given to the primary user",
             "validFrom": null,
             "validTill": null,
-            "value": 2000
+            "name": 2000
         }
     }
 
@@ -79,7 +79,7 @@ Response:
 
 #### Generate codes
 
-Path: /api/generate/run
+Path: /api/code/generate
 
 Method: POST
 

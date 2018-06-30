@@ -1,7 +1,6 @@
 package com.raccoonberus.loyaltysvc.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.Min;
 import java.util.Date;
 
 @Entity
@@ -10,7 +9,10 @@ public class Type {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private long id;
+
+    private String name;
+
     private String description;
 
     @Column(nullable = true)
@@ -21,12 +23,21 @@ public class Type {
 
     private float value;
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public Type setId(String id) {
+    public Type setId(long id) {
         this.id = id;
+        return this;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public Type setName(String name) {
+        this.name = name;
         return this;
     }
 
