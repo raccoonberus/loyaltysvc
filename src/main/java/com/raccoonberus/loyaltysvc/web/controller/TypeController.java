@@ -1,6 +1,6 @@
 package com.raccoonberus.loyaltysvc.web.controller;
 
-import com.raccoonberus.loyaltysvc.model.Type;
+import com.raccoonberus.loyaltysvc.domain.Type;
 import com.raccoonberus.loyaltysvc.service.TypeService;
 import com.raccoonberus.loyaltysvc.web.model.Response;
 import org.springframework.beans.factory.annotation.Autowired;

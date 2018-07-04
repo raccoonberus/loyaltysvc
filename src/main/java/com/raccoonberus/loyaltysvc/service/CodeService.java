@@ -1,9 +1,7 @@
 package com.raccoonberus.loyaltysvc.service;
 
-import com.raccoonberus.loyaltysvc.model.Code;
-import org.springframework.stereotype.Service;
+import com.raccoonberus.loyaltysvc.domain.Code;
 
-@Service
 public interface CodeService {
 
     Code getFree(String name);

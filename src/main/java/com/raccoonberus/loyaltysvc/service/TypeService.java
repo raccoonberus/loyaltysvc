@@ -1,11 +1,9 @@
 package com.raccoonberus.loyaltysvc.service;
 
-import com.raccoonberus.loyaltysvc.model.Type;
-import org.springframework.stereotype.Service;
+import com.raccoonberus.loyaltysvc.domain.Type;
 
 import java.util.List;
 
-@Service
 public interface TypeService {
 
     void create(Type type);

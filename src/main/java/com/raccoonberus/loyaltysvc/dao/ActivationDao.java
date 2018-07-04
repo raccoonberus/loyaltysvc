@@ -1,14 +1,15 @@
 package com.raccoonberus.loyaltysvc.dao;
 
-import com.raccoonberus.loyaltysvc.model.Account;
-import com.raccoonberus.loyaltysvc.model.Activation;
+import com.raccoonberus.loyaltysvc.domain.Account;
+import com.raccoonberus.loyaltysvc.domain.Activation;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Date;
 import java.util.List;
 
 @Repository
-public interface ActivationDao extends BaseDao<Activation> {
+public interface ActivationDao extends JpaRepository<Activation, Long> {
 
     List<Activation> getByPeriod(Date since);
 

@@ -1,9 +1,7 @@
 package com.raccoonberus.loyaltysvc.service;
 
-import com.raccoonberus.loyaltysvc.model.Account;
-import org.springframework.stereotype.Service;
+import com.raccoonberus.loyaltysvc.domain.Account;
 
-@Service
 public interface AccountService {
 
     Account get(String username);

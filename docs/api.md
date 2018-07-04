@@ -1,12 +1,31 @@
 # API blueprint
 
+## Code resource
+
+#### Activate code
+
+POST /api/code/activate
+
+Request body:
+
+    {
+        "username": "ivanov234",
+        "code": "AFNGKE-833"
+    }
+
+Response content:
+
+    {
+        "ok": true
+    }
+
 ## Type resource
 
-Path: /api/type
+Base path: /api/type
 
 #### Save code type
 
-Method: **POST**
+POST /api/type
 
 Body:
 
@@ -27,7 +46,7 @@ Response:
 
 #### Get codes types
 
-Method: **GET**
+GET /api/type
 
 Response:
 
@@ -38,29 +57,27 @@ Response:
                 "description": "Code is given to the primary user",
                 "validFrom": null,
                 "validTill": null,
-                "name": 2000
+                "value": 2000
             },
             {
                 "name": "new-year-2020-promo",
                 "description": "Discount codes for 2020 New Year",
                 "validFrom": "2019-12-22",
                 "validTill": "2020-01-14",
-                "name": 5000
+                "value": 5000
             },
             {
                 "name": "lure-customers",
                 "description": "Send discount code after purchase",
                 "expiration": 2678400, // 60 * 60 * 24 * 31 = one month in seconds
-                "name": 1500
+                "value": 1500
             }
         ]
     }
 
 #### Get type
 
-Path: /api/type/{id|name}
-
-Method: **GET**
+GET /api/type/{id|name}
 
 Response:
 
@@ -71,19 +88,66 @@ Response:
             "description": "Code is given to the primary user",
             "validFrom": null,
             "validTill": null,
-            "name": 2000
+            "value": 2000
         }
     }
 
-## Code resource
+#### Add type
 
-#### Generate codes
+POST /api/type
 
-Path: /api/code/generate
+Request body:
 
-Method: POST
+    {
+        "name": "new-year-promo",
+        "description": "New Year promo codes",
+        "validFrom": "2018-12-22 00:00:00",
+        "validTill": "2019-01-07 23:59:59",
+        "value": 2000
+    }
 
-Body:
+Response content:
+
+    {
+        "ok": true
+    }
+
+#### Edit type
+
+PUT /api/type
+
+Request body:
+
+    {
+        "id": 123,
+        "name": "new-year-promo",
+        "description": "New Year promo codes",
+        "validFrom": "2018-12-22 00:00:00",
+        "validTill": "2019-01-07 23:59:59",
+        "value": 2000
+    }
+
+Response content:
+
+    {
+        "ok": true
+    }
+
+#### Delete type
+
+DELETE /api/type/{id}
+
+#### Deactivate type
+
+DELETE /api/type/{id}/deactivate
+
+## Generate resource
+
+#### Open task
+
+POST /api/generate
+
+Request body:
 
     {
         "strategy": "CustomerPersonalCode-4-letter-6-digits",
@@ -91,7 +155,7 @@ Body:
         "quantity": 10000
     }
 
-Response:
+Response content:
 
     {
         "ok": true,

@@ -1,4 +1,4 @@
-package com.raccoonberus.loyaltysvc.model;
+package com.raccoonberus.loyaltysvc.domain;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -13,8 +13,10 @@ public class Activation {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
 
+    @ManyToOne
     private Account account;
 
+    @ManyToOne
     private Code code;
 
     private Date activatedAt;

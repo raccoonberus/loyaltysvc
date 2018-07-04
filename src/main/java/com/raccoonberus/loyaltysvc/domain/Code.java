@@ -1,4 +1,4 @@
-package com.raccoonberus.loyaltysvc.model;
+package com.raccoonberus.loyaltysvc.domain;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -1,6 +1,6 @@
 package com.raccoonberus.loyaltysvc.dao;
 
-import com.raccoonberus.loyaltysvc.model.Code;
+import com.raccoonberus.loyaltysvc.domain.Code;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,4 +1,4 @@
-package com.raccoonberus.loyaltysvc.model;
+package com.raccoonberus.loyaltysvc.domain;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -22,6 +22,8 @@ public class Type {
     private Date validTill;
 
     private float value;
+
+    private boolean active = true;
 
     public long getId() {
         return id;
@@ -76,5 +78,13 @@ public class Type {
         this.value = value;
         return this;
     }
-    
+
+    public boolean isActive() {
+        return active;
+    }
+
+    public Type setActive(boolean active) {
+        this.active = active;
+        return this;
+    }
 }
