@@ -15,7 +15,7 @@ public class GeneratorIntegrationTest extends BaseIntegrationTest {
 
     @Test
     public void generate() throws Exception {
-        typeDao.saveAndFlush(
+        typeDao.save(
                 new Type().setName("30-days-discount").setDescription("Some test code's type.")
         );
 

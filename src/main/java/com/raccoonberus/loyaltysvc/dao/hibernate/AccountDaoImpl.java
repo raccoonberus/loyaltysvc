@@ -10,13 +10,9 @@ import java.util.Date;
 import java.util.List;
 
 @Repository
-public class AccountDao extends SimpleJpaRepository<Account, Long>
+public class AccountDaoImpl
+        extends BaseHibernateDaoImpl<Account, Long>
         implements com.raccoonberus.loyaltysvc.dao.AccountDao {
-
-    @Autowired
-    public AccountDao(EntityManager em) {
-        super(Account.class, em);
-    }
 
     @Override
     public Account getByUsername(String username) {
@@ -24,10 +20,12 @@ public class AccountDao extends SimpleJpaRepository<Account, Long>
     }
 
     @Override
-    public void doBlockTill(Account account, Date dateTill) {}
+    public void doBlockTill(Account account, Date dateTill) {
+    }
 
     @Override
     public List<Account> inBlockedPeriodNow(int limit) {
         return null;
     }
+
 }

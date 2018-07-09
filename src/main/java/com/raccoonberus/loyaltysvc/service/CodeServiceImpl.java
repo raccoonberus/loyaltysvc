@@ -18,6 +18,11 @@ public class CodeServiceImpl implements CodeService {
     private CodeDao codeDao;
 
     @Override
+    public void save(Code code) {
+        codeDao.save(code);
+    }
+
+    @Override
     public Code getFree(String name) {
         return codeDao.get(name);
     }

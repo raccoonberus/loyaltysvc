@@ -5,7 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CodeDao extends JpaRepository<Code, Long> {
+public interface CodeDao extends BaseDao<Code, Long> {
 
     Code get(String name);
 

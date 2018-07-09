@@ -15,7 +15,7 @@ public class TypeServiceImpl implements TypeService {
 
     @Override
     public void create(Type type) {
-        typeDao.saveAndFlush(type);
+        typeDao.save(type);
     }
 
     @Override
