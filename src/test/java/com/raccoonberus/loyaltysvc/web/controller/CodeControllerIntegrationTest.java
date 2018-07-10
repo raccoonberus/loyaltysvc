@@ -12,7 +12,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class CodeControllerIntegrationTest extends BaseIntegrationTest {
+public class CodeControllerIntegrationTest extends BaseIntegration {
 
     @Autowired
     private TypeDao typeDao;

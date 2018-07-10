@@ -4,11 +4,13 @@ import com.raccoonberus.loyaltysvc.dao.TypeDao;
 import com.raccoonberus.loyaltysvc.domain.Type;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class GeneratorIntegrationTest extends BaseIntegrationTest {
+public class GeneratorIntegrationTest extends BaseIntegration {
 
     @Autowired
     private TypeDao typeDao;
@@ -16,17 +18,21 @@ public class GeneratorIntegrationTest extends BaseIntegrationTest {
     @Test
     public void generate() throws Exception {
         typeDao.save(
-                new Type().setName("30-days-discount").setDescription("Some test code's type.")
+                new Type()
+                        .setName("30-days-discount")
+                        .setDescription("Some test code's type.")
         );
 
         mockMvc.perform(
                 post("/api/code/generate")
+                        .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n" +
                                 "        \"strategy\": \"CustomerPersonalCode-4-letter-6-digits\",\n" +
                                 "        \"type\": \"30-days-discount\",\n" +
                                 "        \"quantity\": 10\n" +
                                 "    }")
         )
+                .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value(true))
                 .andExpect(MockMvcResultMatchers.jsonPath("$.result").value(10))
         ;

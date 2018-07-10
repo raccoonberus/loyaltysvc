@@ -17,7 +17,7 @@ import org.springframework.web.context.WebApplicationContext;
 @ContextConfiguration(classes = {Application.class})
 @WebAppConfiguration
 @TestPropertySource(locations="classpath:application.properties")
-public class BaseIntegrationTest {
+public abstract class BaseIntegration {
 
     @Autowired
     private WebApplicationContext wac;
