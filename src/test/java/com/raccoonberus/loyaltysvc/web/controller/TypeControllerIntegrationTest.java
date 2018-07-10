@@ -14,7 +14,7 @@ public class TypeControllerIntegrationTest extends BaseIntegration {
     @Test
     public void createAndGet() throws Exception {
         this.mockMvc
-                .perform(post("/api/type")
+                .perform(post("/type")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n" +
                                 "    \"id\": \"test-type\",\n" +
@@ -34,7 +34,7 @@ public class TypeControllerIntegrationTest extends BaseIntegration {
                 .andReturn();
 
         this.mockMvc
-                .perform(get("/api/type"))
+                .perform(get("/type"))
                 .andDo(print()).andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers
                         .jsonPath("$.ok")

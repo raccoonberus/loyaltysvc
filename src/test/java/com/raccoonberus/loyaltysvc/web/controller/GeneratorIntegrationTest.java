@@ -17,6 +17,24 @@ public class GeneratorIntegrationTest extends BaseIntegration {
     private TypeDao typeDao;
 
     @Test
+    public void generate_negative() throws Exception {
+        mockMvc
+                .perform(
+                        post("/generate")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content("{\n" +
+                                        "    \"strategy\": \"nonexistent_fake_strategy\",\n" +
+                                        "    \"type\": \"fake_type\",\n" +
+                                        "    \"quantity\": 10\n" +
+                                        "}")
+                )
+                .andDo(print())
+                .andExpect(status().isBadRequest())
+                .andExpect(MockMvcResultMatchers.jsonPath("$.error.messages").isArray())
+        ;
+    }
+
+    @Test
     public void generate() throws Exception {
         typeDao.save(
                 new Type()
@@ -26,7 +44,7 @@ public class GeneratorIntegrationTest extends BaseIntegration {
 
         mockMvc
                 .perform(
-                        post("/code/generate")
+                        post("/generate")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("{\n" +
                                         "    \"strategy\": \"CustomerPersonalCode-4-letter-6-digits\",\n" +

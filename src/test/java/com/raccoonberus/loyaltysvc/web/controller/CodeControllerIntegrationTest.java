@@ -34,7 +34,8 @@ public class CodeControllerIntegrationTest extends BaseIntegration {
                 )
                 .andDo(print())
                 .andExpect(status().isBadRequest())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.error.messages").isArray());
+                .andExpect(MockMvcResultMatchers.jsonPath("$.error.messages").isArray())
+        ;
     }
 
     @Test
