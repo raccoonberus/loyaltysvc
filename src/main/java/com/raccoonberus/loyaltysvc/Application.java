@@ -5,7 +5,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
-import org.springframework.data.repository.query.QueryLookupStrategy;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
@@ -16,9 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableJpaAuditing
 @EnableTransactionManagement
 @EntityScan("com.raccoonberus.loyaltysvc.domain")
-@EnableJpaRepositories(value = "com.raccoonberus.loyaltysvc.dao",
-        queryLookupStrategy = QueryLookupStrategy.Key.CREATE_IF_NOT_FOUND
-)
+@EnableJpaRepositories(value = "com.raccoonberus.loyaltysvc.dao")
 public class Application {
 
     public static void main(String[] args) {
