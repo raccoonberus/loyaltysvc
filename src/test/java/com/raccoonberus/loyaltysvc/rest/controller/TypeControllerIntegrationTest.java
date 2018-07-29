@@ -14,7 +14,7 @@ public class TypeControllerIntegrationTest extends BaseIntegration {
     @Test
     public void createAndGet() throws Exception {
         this.mockMvc
-                .perform(post("/type")
+                .perform(post("/api/type")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content("{\n" +
                                 "    \"id\": \"test-type\",\n" +

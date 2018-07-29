@@ -20,7 +20,7 @@ public class GeneratorIntegrationTest extends BaseIntegration {
     public void generate_negative() throws Exception {
         mockMvc
                 .perform(
-                        post("/generate")
+                        post("/api/generate")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("{\n" +
                                         "    \"strategy\": \"nonexistent_fake_strategy\",\n" +
@@ -44,7 +44,7 @@ public class GeneratorIntegrationTest extends BaseIntegration {
 
         mockMvc
                 .perform(
-                        post("/generate")
+                        post("/api/generate")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("{\n" +
                                         "    \"strategy\": \"CustomerPersonalCode-4-letter-6-digits\",\n" +

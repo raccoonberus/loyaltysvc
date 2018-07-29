@@ -25,7 +25,7 @@ public class CodeControllerIntegrationTest extends BaseIntegration {
     public void codeActivation_negative() throws Exception {
         this.mockMvc
                 .perform(
-                        post("/code/activate")
+                        post("/api/code/activate")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("{\n" +
                                         "    \"username\": \"some_unreal_nonexistent_super_secret_username_or_nickName\", \n" +
@@ -50,7 +50,7 @@ public class CodeControllerIntegrationTest extends BaseIntegration {
 
         this.mockMvc
                 .perform(
-                        post("/code/activate")
+                        post("/api/code/activate")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("{\n" +
                                         "    \"username\": \"ivanov234\", \n" +
