@@ -1,4 +1,4 @@
-package com.raccoonberus.loyaltysvc.web.exception;
+package com.raccoonberus.loyaltysvc.rest.exception;
 
 public class ApiException extends Exception {
 

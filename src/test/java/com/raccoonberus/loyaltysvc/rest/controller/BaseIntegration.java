@@ -1,6 +1,5 @@
-package com.raccoonberus.loyaltysvc.web.controller;
+package com.raccoonberus.loyaltysvc.rest.controller;
 
-import com.raccoonberus.loyaltysvc.Application;
 import com.raccoonberus.loyaltysvc.TestConfig;
 import org.junit.After;
 import org.junit.Before;

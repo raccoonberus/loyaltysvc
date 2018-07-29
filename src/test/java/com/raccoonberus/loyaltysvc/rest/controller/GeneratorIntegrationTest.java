@@ -1,12 +1,9 @@
-package com.raccoonberus.loyaltysvc.web.controller;
+package com.raccoonberus.loyaltysvc.rest.controller;
 
-import com.raccoonberus.loyaltysvc.dao.CodeDao;
 import com.raccoonberus.loyaltysvc.dao.TypeDao;
-import com.raccoonberus.loyaltysvc.domain.Code;
 import com.raccoonberus.loyaltysvc.domain.Type;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
@@ -14,23 +11,21 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-public class CodeControllerIntegrationTest extends BaseIntegration {
+public class GeneratorIntegrationTest extends BaseIntegration {
 
     @Autowired
     private TypeDao typeDao;
 
-    @Autowired
-    private CodeDao codeDao;
-
     @Test
-    public void codeActivation_negative() throws Exception {
-        this.mockMvc
+    public void generate_negative() throws Exception {
+        mockMvc
                 .perform(
-                        post("/code/activate")
+                        post("/generate")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("{\n" +
-                                        "    \"username\": \"some_unreal_nonexistent_super_secret_username_or_nickName\", \n" +
-                                        "    \"code\": \"some_nonexistent_code\"\n" +
+                                        "    \"strategy\": \"nonexistent_fake_strategy\",\n" +
+                                        "    \"type\": \"fake_type\",\n" +
+                                        "    \"quantity\": 10\n" +
                                         "}")
                 )
                 .andDo(print())
@@ -40,27 +35,28 @@ public class CodeControllerIntegrationTest extends BaseIntegration {
     }
 
     @Test
-    public void codeActivation() throws Exception {
+    public void generate() throws Exception {
+        typeDao.save(
+                new Type()
+                        .setName("30-days-discount")
+                        .setDescription("Some test code's type.")
+        );
 
-        Type type = new Type().setName("Some type").setValue(1000);
-        typeDao.save(type);
-
-        String codeName = "qwerty";
-        Code code = new Code().setName(codeName).setType(type);
-        codeDao.save(code);
-
-        this.mockMvc
+        mockMvc
                 .perform(
-                        post("/code/activate")
+                        post("/generate")
                                 .contentType(MediaType.APPLICATION_JSON)
                                 .content("{\n" +
-                                        "    \"username\": \"ivanov234\", \n" +
-                                        "    \"code\": \"" + codeName + "\"\n" +
+                                        "    \"strategy\": \"CustomerPersonalCode-4-letter-6-digits\",\n" +
+                                        "    \"type\": \"30-days-discount\",\n" +
+                                        "    \"quantity\": 10\n" +
                                         "}")
                 )
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value(true));
+                .andExpect(MockMvcResultMatchers.jsonPath("$.ok").value(true))
+                .andExpect(MockMvcResultMatchers.jsonPath("$.result").value(10))
+        ;
     }
 
 }

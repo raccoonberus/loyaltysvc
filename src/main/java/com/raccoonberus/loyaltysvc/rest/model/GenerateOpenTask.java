@@ -1,4 +1,4 @@
-package com.raccoonberus.loyaltysvc.web.model;
+package com.raccoonberus.loyaltysvc.rest.model;
 
 public class GenerateOpenTask {
 

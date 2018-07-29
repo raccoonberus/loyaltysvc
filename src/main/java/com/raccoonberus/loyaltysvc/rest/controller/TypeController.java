@@ -1,8 +1,8 @@
-package com.raccoonberus.loyaltysvc.web.controller;
+package com.raccoonberus.loyaltysvc.rest.controller;
 
 import com.raccoonberus.loyaltysvc.domain.Type;
-import com.raccoonberus.loyaltysvc.web.exception.ApiException;
-import com.raccoonberus.loyaltysvc.web.model.Response;
+import com.raccoonberus.loyaltysvc.rest.exception.ApiException;
+import com.raccoonberus.loyaltysvc.rest.model.Response;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("type")
+@RequestMapping("/api/type")
 public class TypeController {
 
     @PostMapping

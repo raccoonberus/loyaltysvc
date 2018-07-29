@@ -1,4 +1,4 @@
-package com.raccoonberus.loyaltysvc.web.controller;
+package com.raccoonberus.loyaltysvc.rest.controller;
 
 import org.junit.Test;
 import org.springframework.http.MediaType;

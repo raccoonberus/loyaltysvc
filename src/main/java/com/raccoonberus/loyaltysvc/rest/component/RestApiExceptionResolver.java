@@ -1,8 +1,8 @@
-package com.raccoonberus.loyaltysvc.web.component;
+package com.raccoonberus.loyaltysvc.rest.component;
 
-import com.raccoonberus.loyaltysvc.web.exception.ApiException;
-import com.raccoonberus.loyaltysvc.web.model.ErrorMessage;
-import com.raccoonberus.loyaltysvc.web.model.ExceptionResponse;
+import com.raccoonberus.loyaltysvc.rest.exception.ApiException;
+import com.raccoonberus.loyaltysvc.rest.model.ErrorMessage;
+import com.raccoonberus.loyaltysvc.rest.model.ExceptionResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.ModelAndView;

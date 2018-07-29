@@ -1,6 +1,4 @@
-package com.raccoonberus.loyaltysvc.web.model;
-
-import com.fasterxml.jackson.annotation.JsonRootName;
+package com.raccoonberus.loyaltysvc.rest.model;
 
 import java.io.Serializable;
 import java.util.ArrayList;
