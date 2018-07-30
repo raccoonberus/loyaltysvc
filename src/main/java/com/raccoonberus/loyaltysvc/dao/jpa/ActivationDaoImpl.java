@@ -1,4 +1,4 @@
-package com.raccoonberus.loyaltysvc.dao.hibernate;
+package com.raccoonberus.loyaltysvc.dao.jpa;
 
 import com.raccoonberus.loyaltysvc.dao.ActivationDao;
 import com.raccoonberus.loyaltysvc.domain.Account;

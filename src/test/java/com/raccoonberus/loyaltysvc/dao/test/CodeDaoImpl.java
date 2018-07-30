@@ -7,8 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CodeDaoImpl implements CodeDao {
+
     private List<Code> codes = new ArrayList<>();
     private static long nextId = 1;
+
+    @Override
+    public Code find(Long aLong) {
+        return new Code();
+    }
 
     @Override
     public Code get(String name) {

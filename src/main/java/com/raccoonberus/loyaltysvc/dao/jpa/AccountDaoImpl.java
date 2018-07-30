@@ -1,11 +1,8 @@
-package com.raccoonberus.loyaltysvc.dao.hibernate;
+package com.raccoonberus.loyaltysvc.dao.jpa;
 
 import com.raccoonberus.loyaltysvc.domain.Account;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
 import java.util.Date;
 import java.util.List;
 

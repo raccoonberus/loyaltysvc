@@ -1,12 +1,15 @@
 package com.raccoonberus.loyaltysvc.rest.controller;
 
+import com.raccoonberus.loyaltysvc.dao.TypeDao;
 import com.raccoonberus.loyaltysvc.domain.Type;
 import com.raccoonberus.loyaltysvc.rest.exception.ApiException;
 import com.raccoonberus.loyaltysvc.rest.model.Response;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.sql.SQLIntegrityConstraintViolationException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +17,13 @@ import java.util.List;
 @RequestMapping("/api/type")
 public class TypeController {
 
+    @Autowired
+    private TypeDao typeDao;
+
     @PostMapping
     public Response create(@RequestBody @Valid Type type) throws ApiException {
-        throw new ApiException("Type not found!");
+        typeDao.save(type);
+        return new Response(true, type.getId());
     }
 
     @PutMapping
@@ -36,10 +43,11 @@ public class TypeController {
 
     @RequestMapping(value = "{id:[0-9]+}", method = RequestMethod.GET)
     public Response get(@PathVariable Long id) throws ApiException {
-        throw new ApiException("Type not found for specified name!");
+        Type type = typeDao.find(id);
+        return new Response(true, type);
     }
 
-    @RequestMapping(value = "{name}", method = RequestMethod.GET)
+    @RequestMapping(value = "{name:[a-zA-Z]+}", method = RequestMethod.GET)
     public Object get(@PathVariable("name") String name, Model model) throws ApiException {
         throw new ApiException("Type not found for specified name!");
 //        return new ExceptionResponse();
