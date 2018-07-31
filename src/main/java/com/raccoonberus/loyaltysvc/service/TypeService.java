@@ -6,7 +6,15 @@ import java.util.List;
 
 public interface TypeService {
 
+    Type find(Long id);
+
     void create(Type type);
 
-    List<Type> getAll();
+    void update(Type type);
+
+    void delete(Type type);
+
+    void delete(Long id);
+
+    void deactivate(Long id);
 }

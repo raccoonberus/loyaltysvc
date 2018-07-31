@@ -14,12 +14,35 @@ public class TypeServiceImpl implements TypeService {
     private TypeDao typeDao;
 
     @Override
+    public Type find(Long id) {
+        return typeDao.find(id);
+    }
+
+    @Override
     public void create(Type type) {
         typeDao.save(type);
     }
 
     @Override
-    public List<Type> getAll() {
-        return null;
+    public void update(Type type) {
+        typeDao.update(type);
+    }
+
+    @Override
+    public void delete(Type type) {
+        typeDao.remove(type);
+    }
+
+    @Override
+    public void delete(Long id) {
+        Type t = typeDao.find(id);
+        typeDao.remove(t);
+    }
+
+    @Override
+    public void deactivate(Long id) {
+        Type t = typeDao.find(id);
+        t.setActive(false);
+        typeDao.update(t);
     }
 }

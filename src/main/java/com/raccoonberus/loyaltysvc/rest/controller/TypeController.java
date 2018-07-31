@@ -4,6 +4,7 @@ import com.raccoonberus.loyaltysvc.dao.TypeDao;
 import com.raccoonberus.loyaltysvc.domain.Type;
 import com.raccoonberus.loyaltysvc.rest.exception.ApiException;
 import com.raccoonberus.loyaltysvc.rest.model.Response;
+import com.raccoonberus.loyaltysvc.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,32 +19,35 @@ import java.util.List;
 public class TypeController {
 
     @Autowired
-    private TypeDao typeDao;
+    private TypeService typeService;
 
     @PostMapping
     public Response create(@RequestBody @Valid Type type) throws ApiException {
-        typeDao.save(type);
+        typeService.create(type);
         return new Response(true, type.getId());
     }
 
     @PutMapping
     public Response update(@RequestBody @Valid Type type) throws ApiException {
-        throw new ApiException("Type not found!");
+        typeService.update(type);
+        return new Response(true, true);
     }
 
     @DeleteMapping("{id:[0-9]+}")
     public Response delete(@PathVariable Long id) throws ApiException {
-        throw new ApiException("Type not found!");
+        typeService.delete(id);
+        return new Response(true, true);
     }
 
     @DeleteMapping("{id:[0-9]+}/deactivate")
     public Response deactivate(@PathVariable Long id) throws ApiException {
-        throw new ApiException("Type not found!");
+        typeService.deactivate(id);
+        return new Response(true, true);
     }
 
     @RequestMapping(value = "{id:[0-9]+}", method = RequestMethod.GET)
     public Response get(@PathVariable Long id) throws ApiException {
-        Type type = typeDao.find(id);
+        Type type = typeService.find(id);
         return new Response(true, type);
     }
 
